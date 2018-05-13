@@ -1,7 +1,14 @@
-<div class="row">
-    <div class="col-xs-12">
-        <app-tab
-                *ngFor="let tab of tabs; let i = index">
-        </app-tab>
-    </div>
+<!--<app-tab-->
+<!--*ngFor="let tab of tabs; let i = index">-->
+<!--</app-tab>-->
+<div>
+    <app-tab *ngFor="let tab of tabs"
+             [tab]="tab"
+    >
+        <a>{{tab}}</a>
+    </app-tab>
 </div>
+
+<hr>
+
+<button class="btn btn-success" (click)="onPopulate()">Populate</button>

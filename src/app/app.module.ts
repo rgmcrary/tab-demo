@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { State } from '../store';
+import { IAppState, tabReducer, initialState } from './store/tab.reducer';
+import { TabActions } from './store/tab.actions';
 
-import { NgReduxModule } from '@angular-redux/store';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
 
 import { AppComponent } from './app.component';
 import { TabsComponent } from './tabs/tabs.component';
-import { TabComponent } from './tab/tab.component';
+import { TabComponent } from './tabs/tab/tab.component';
 
 @NgModule({
     declarations: [
@@ -19,8 +20,11 @@ import { TabComponent } from './tab/tab.component';
         NgReduxModule,
 
     ],
-    providers: [],
+    providers: [TabActions],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {
+    constructor(ngRedux: NgRedux<IAppState>) {
+        ngRedux.configureStore(tabReducer, initialState);
+    }
 }

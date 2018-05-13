@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {TabsComponent} from './tabs/tabs.component';
 
 @Component({
     selector: 'app-root',
@@ -8,13 +7,11 @@ import {TabsComponent} from './tabs/tabs.component';
 })
 
 export class AppComponent {
-    title = 'app';
+    title = 'Tabs';
 }
 
 
-//
-// onPopulate() {
-//
-// };
+
+
 
 
