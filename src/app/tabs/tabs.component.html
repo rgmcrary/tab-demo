@@ -1,14 +1,14 @@
-<!--<app-tab-->
-<!--*ngFor="let tab of tabs; let i = index">-->
-<!--</app-tab>-->
-<div>
-    <app-tab *ngFor="let tab of tabs"
-             [tab]="tab"
-    >
-        <a>{{tab}}</a>
-    </app-tab>
+<div class="tabs" *ngFor="let tab of tabs">
+    <div class="tabName" [ngClass]="{activeTab: tab.active}" (click)="selectTab(tab)">{{ tab.name }}</div>
 </div>
+
+<div *ngFor="let tab of tabs">
+    <app-tab [tab]="tab"></app-tab>
+</div>
+
 
 <hr>
 
-<button class="btn btn-success" (click)="onPopulate()">Populate</button>
+<div class="col-xs-12">
+    <button class="btn btn-success" (click)="onPopulate()">Populate</button>
+</div>

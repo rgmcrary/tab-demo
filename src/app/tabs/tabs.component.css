@@ -1,0 +1,39 @@
+.tabs {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.tabName {
+    background: lightgrey;
+    min-width: 200px;
+    text-align: center;
+}
+
+.tabName:hover {
+    cursor: pointer;
+    background: blue;
+    font-weight: bold;
+    color: white;
+}
+
+.activeTab {
+    background: seagreen;
+    color: white;
+}
+
+button {
+    background: seagreen;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: blue;
+    font-weight: bold;
+}
+
+

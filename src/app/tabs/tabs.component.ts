@@ -11,27 +11,30 @@ import { Tab } from '../tab.model';
     styleUrls: [ './tabs.component.css' ]
 })
 
-// public class Tab {
-//
-// }
-
 export class TabsComponent implements OnDestroy {
-    tabs: Tab[];
+    tabs: Tab[] = [];
     subscription;
 
     constructor(
         private ngRedux: NgRedux<IAppState>,
         private actions: TabActions) {
         this.subscription = ngRedux.select<Tab[]>('tabs')
-            .subscribe(tabs=> this.tabs = tabs);
+            .subscribe(tabs => this.tabs = tabs);
     }
 
     onPopulate() {
-    this.ngRedux.dispatch(this.actions.fetch());
+        this.ngRedux.dispatch(this.actions.fetch());
     };
 
     ngOnDestroy() {
         this.subscription.unsubscribe();
+    }
+
+    selectTab(tab: Tab) {
+        this.tabs.forEach((tab) => {
+            tab.active = false;
+        });
+        tab.active = true;
     }
 }
 
