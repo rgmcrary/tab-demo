@@ -18,8 +18,7 @@ import { TabComponent } from './tabs/tab/tab.component';
     imports: [
         BrowserModule,
         NgReduxModule,
-
-    ],
+        ],
     providers: [TabActions],
     bootstrap: [ AppComponent ]
 })
